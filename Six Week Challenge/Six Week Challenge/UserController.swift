@@ -23,11 +23,11 @@ class UserController {
         User(userName: "Derek Slade")
     ]
     
+    // We will need to modify all of our crud functions once we implement persistent storage.
+    
     func createUser(userName: String) {
         let user = User(userName: userName)
         UserController.sharedUserController.users.append(user)
-        
-        // save to persistent storage
     }
     
     func deleteUser(user: User) {
@@ -40,8 +40,44 @@ class UserController {
     
     func updateUser(userName: String, user: User) {
         user.userName = userName
+    }
+    
+    func assignTeams(users: [User]) {
+        var teamCounter = 0
+        for (index, user) in users.enumerate() {
+            if index % 2 == 0 {
+                teamCounter++
+                user.team = teamCounter
+            } else {
+                user.team = teamCounter
+            }
+        }
+    }
+    
+    func randomize(users: [User]) {
         
-        // Check if there is anyhting else you can update.
     }
     
 }
+
+// an extension from stack overflow for randomizing a Mutable Collection Type
+extension MutableCollectionType where Index == Int {
+    /// Shuffle the elements of `self` in-place.
+    mutating func shuffleInPlace() {
+        // empty and single-element collections don't shuffle
+        if count < 2 { return }
+        
+        for i in 0..<count - 1 {
+            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+            guard i != j else { continue }
+            swap(&self[i], &self[j])
+        }
+    }
+}
+
+
+
+
+
+
+

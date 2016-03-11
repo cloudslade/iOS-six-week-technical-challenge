@@ -15,6 +15,7 @@ class UserListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath)
+        UserController.sharedUserController.assignTeams(UserController.sharedUserController.users)
         let user = UserController.sharedUserController.users[indexPath.row]
         cell.textLabel?.text = user.userName
         if let team = user.team {
@@ -25,8 +26,16 @@ class UserListTableViewController: UITableViewController {
         return cell
     }
     
-    
     @IBAction func randomize(sender: UIBarButtonItem) {
-        
+        UserController.sharedUserController.users.shuffleInPlace()
+        self.tableView.reloadData()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let dvc = segue.destinationViewController as! UserDetailViewController
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        dvc.user = UserController.sharedUserController.users[(indexPath?.row)!]
+    }
+    
 }
