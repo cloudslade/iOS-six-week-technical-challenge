@@ -15,6 +15,7 @@
 		E64B91A31C932D1D002FC64D /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B91A21C932D1D002FC64D /* UserListTableViewController.swift */; };
 		E64B91A51C932D54002FC64D /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B91A41C932D54002FC64D /* UserController.swift */; };
 		E64B91A71C932FC5002FC64D /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B91A61C932FC5002FC64D /* UserDetailViewController.swift */; };
+		E64B91AC1C933297002FC64D /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B91AB1C933297002FC64D /* CreateUserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E64B91A21C932D1D002FC64D /* UserListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 		E64B91A41C932D54002FC64D /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		E64B91A61C932FC5002FC64D /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		E64B91AB1C933297002FC64D /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +67,37 @@
 				E64B919A1C9325F7002FC64D /* Info.plist */,
 				E64B918E1C9325F7002FC64D /* AppDelegate.swift */,
 				E64B91921C9325F7002FC64D /* Main.storyboard */,
-				E64B91A01C932BB1002FC64D /* User.swift */,
-				E64B91A21C932D1D002FC64D /* UserListTableViewController.swift */,
-				E64B91A61C932FC5002FC64D /* UserDetailViewController.swift */,
-				E64B91A41C932D54002FC64D /* UserController.swift */,
+				E64B91A81C93322B002FC64D /* Model */,
+				E64B91A91C933231002FC64D /* View Controllers */,
+				E64B91AA1C93323A002FC64D /* Model Controllers */,
 			);
 			path = "Six Week Challenge";
+			sourceTree = "<group>";
+		};
+		E64B91A81C93322B002FC64D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E64B91A01C932BB1002FC64D /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E64B91A91C933231002FC64D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E64B91A21C932D1D002FC64D /* UserListTableViewController.swift */,
+				E64B91A61C932FC5002FC64D /* UserDetailViewController.swift */,
+				E64B91AB1C933297002FC64D /* CreateUserViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E64B91AA1C93323A002FC64D /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E64B91A41C932D54002FC64D /* UserController.swift */,
+			);
+			name = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +176,7 @@
 				E64B91A11C932BB1002FC64D /* User.swift in Sources */,
 				E64B91A51C932D54002FC64D /* UserController.swift in Sources */,
 				E64B918F1C9325F7002FC64D /* AppDelegate.swift in Sources */,
+				E64B91AC1C933297002FC64D /* CreateUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

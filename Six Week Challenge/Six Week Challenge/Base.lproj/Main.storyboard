@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create User Controller-->
         <scene sceneID="MZg-Wb-D5D">
             <objects>
-                <viewController id="bCM-jX-1xd" sceneMemberID="viewController">
+                <viewController id="bCM-jX-1xd" customClass="CreateUserController" customModule="Six_Week_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DBZ-QM-Fvc"/>
                         <viewControllerLayoutGuide type="bottom" id="Ngg-4l-dU0"/>
@@ -23,14 +23,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QD6-Ov-7pV">
+                                <rect key="frame" x="259" y="129" width="82" height="30"/>
+                                <state key="normal" title="Create User"/>
+                                <connections>
+                                    <action selector="createUserButtonTapped:" destination="bCM-jX-1xd" eventType="touchUpInside" id="jdy-z2-Xwt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="QD6-Ov-7pV" firstAttribute="top" secondItem="UWr-ns-nLS" secondAttribute="bottom" constant="51" id="P4p-Ln-ZDt"/>
                             <constraint firstItem="UWr-ns-nLS" firstAttribute="centerX" secondItem="A1Y-OI-o1c" secondAttribute="centerX" id="Y9Y-jz-gdp"/>
                             <constraint firstItem="UWr-ns-nLS" firstAttribute="leading" secondItem="A1Y-OI-o1c" secondAttribute="leadingMargin" constant="18" id="e9p-jR-5hc"/>
                             <constraint firstItem="UWr-ns-nLS" firstAttribute="top" secondItem="DBZ-QM-Fvc" secondAttribute="bottom" constant="28" id="eMi-ts-qfw"/>
+                            <constraint firstItem="QD6-Ov-7pV" firstAttribute="centerX" secondItem="UWr-ns-nLS" secondAttribute="centerX" id="k08-3U-dfe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="userNameTextField" destination="UWr-ns-nLS" id="2BU-5y-Ohr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHR-dE-1td" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,8 +153,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Dgg-lh-iyI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vm9-kq-Szg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vm9-kq-Szg">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="Sso-x8-TS5" id="0gH-lH-UPS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="partnerUserNameLabel" destination="Pwd-Pw-N0n" id="aaJ-ii-rhe"/>
+                        <outlet property="teamNameLabel" destination="5lg-Uq-lLz" id="qDd-Bf-BtI"/>
+                        <outlet property="userNameTextField" destination="w7j-bZ-yUr" id="BRT-RH-h2S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8N-LR-7xQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
