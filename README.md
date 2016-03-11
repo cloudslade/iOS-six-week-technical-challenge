@@ -20,4 +20,6 @@ Take as much time as needed to complete the challenge. Add a note at the bottom 
 
 Example:
 
+Completed in 3:25
+
 ```Completed in 2.5 hours.```
