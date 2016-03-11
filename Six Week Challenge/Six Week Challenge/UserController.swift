@@ -8,29 +8,27 @@
 
 import Foundation
 
-// Persistent almost working, Need to resolve a bug and persistence should work.
-
 class UserController {
     private let usersKey = "users"
     static let sharedUserController = UserController()
     var users: [User] = [
-        User(userName: "John"),
-        User(userName: "yola"),
-        User(userName: "JohnnyBoy"),
-        User(userName: "Mohanna"),
-        User(userName: "Bradley Slade"),
-        User(userName: "Carolyn Slade"),
-        User(userName: "Dylan Slade"),
-        User(userName: "Tiana Slade"),
-        User(userName: "Ella Slade"),
-        User(userName: "Derek Slade"),
-        User(userName: "Yolanda"),
-        User(userName: "YoyoMa")
+//        User(userName: "John"),
+//        User(userName: "yola"),
+//        User(userName: "JohnnyBoy"),
+//        User(userName: "Mohanna"),
+//        User(userName: "Bradley Slade"),
+//        User(userName: "Carolyn Slade"),
+//        User(userName: "Dylan Slade"),
+//        User(userName: "Tiana Slade"),
+//        User(userName: "Ella Slade"),
+//        User(userName: "Derek Slade"),
+//        User(userName: "Yolanda"),
+//        User(userName: "YoyoMa")
     ]
     
     init() {
-//        self.users = []
-//        self.loadFromPersistentStorage()
+        self.users = []
+        self.loadFromPersistentStorage()
     }
     
     // We will need to modify all of our crud functions once we implement persistent storage.

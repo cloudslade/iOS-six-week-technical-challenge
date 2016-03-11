@@ -38,8 +38,8 @@ class User {
     }
     
     func dictionaryCopy() -> [String: AnyObject] {
-        let dictionary = [userNameKey : self.userName, partnerKey: partnerUserName!, teamKey: String(self.team)]
-        return dictionary
+        let dictionary = [userNameKey : self.userName, partnerKey: partnerUserName!, teamKey: self.team!]
+        return dictionary as! [String : AnyObject]
     }
     
 }
