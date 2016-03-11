@@ -8,7 +8,13 @@
 
 import UIKit
 
+// If you have time, which you will, after you implement persistence than make the tableview divide users into sectiosn based on their team number. The titles of the sections should be the team numbers
+
 class UserListTableViewController: UITableViewController {
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserController.sharedUserController.users.count
     }
@@ -32,10 +38,12 @@ class UserListTableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let dvc = segue.destinationViewController as! UserDetailViewController
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPathForCell(cell)
-        dvc.user = UserController.sharedUserController.users[(indexPath?.row)!]
+        if segue.identifier == "toDetail" {
+            let dvc = segue.destinationViewController as! UserDetailViewController
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            dvc.user = UserController.sharedUserController.users[(indexPath?.row)!]
+        }
     }
     
 }

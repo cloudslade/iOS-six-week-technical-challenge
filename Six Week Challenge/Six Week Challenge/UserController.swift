@@ -39,7 +39,11 @@ class UserController {
     }
     
     func updateUser(userName: String, user: User) {
-        user.userName = userName
+        for element in UserController.sharedUserController.users {
+            if element == user {
+                element.userName = userName
+            }
+        }
     }
     
     func assignTeams(users: [User]) {
@@ -52,10 +56,6 @@ class UserController {
                 user.team = teamCounter
             }
         }
-    }
-    
-    func randomize(users: [User]) {
-        
     }
     
 }

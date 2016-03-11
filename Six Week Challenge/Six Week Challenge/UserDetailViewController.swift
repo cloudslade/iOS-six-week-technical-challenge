@@ -19,13 +19,16 @@ class UserDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(sender: UIBarButtonItem) {
-//        if let newUserName = userNameTextField.text {
-//            //            UserController.sharedUserController.updateUser(newUserName, user: <#T##User#>)
-//        }
+        // Here is where we need to somehow identify the user that is in question, take the text form the userNameTextField and update that text with it. We could perhaps d othe heavvy lifting in our updateUser Function
+        if let newUserName = userNameTextField.text {
+            UserController.sharedUserController.updateUser(newUserName, user: user!)
+        }
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     @IBAction func deleteUser(sender: UIButton) {
-        
+        UserController.sharedUserController.deleteUser(user!)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func updateWithUser() {

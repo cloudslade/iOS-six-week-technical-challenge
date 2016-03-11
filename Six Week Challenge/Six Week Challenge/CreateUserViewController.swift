@@ -12,7 +12,11 @@ class CreateUserController: UIViewController {
     @IBOutlet var userNameTextField: UITextField!
     
     @IBAction func createUserButtonTapped(sender: UIButton) {
-        
+        if let userName = userNameTextField.text {
+            let user = User(userName: userName)
+            UserController.sharedUserController.users.append(user)
+        }
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
 }
