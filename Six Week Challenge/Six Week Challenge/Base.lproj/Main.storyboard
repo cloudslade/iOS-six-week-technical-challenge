@@ -19,12 +19,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UWr-ns-nLS">
-                                <rect key="frame" x="38" y="48" width="524" height="30"/>
+                                <rect key="frame" x="38" y="92" width="524" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QD6-Ov-7pV">
-                                <rect key="frame" x="259" y="129" width="82" height="30"/>
+                                <rect key="frame" x="259" y="173" width="82" height="30"/>
                                 <state key="normal" title="Create User"/>
                                 <connections>
                                     <action selector="createUserButtonTapped:" destination="bCM-jX-1xd" eventType="touchUpInside" id="jdy-z2-Xwt"/>
@@ -40,13 +40,14 @@
                             <constraint firstItem="QD6-Ov-7pV" firstAttribute="centerX" secondItem="UWr-ns-nLS" secondAttribute="centerX" id="k08-3U-dfe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qfw-Kg-IdZ"/>
                     <connections>
                         <outlet property="userNameTextField" destination="UWr-ns-nLS" id="2BU-5y-Ohr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHR-dE-1td" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2032" y="-329"/>
+            <point key="canvasLocation" x="2032" y="-299"/>
         </scene>
         <!--User List Table View Controller-->
         <scene sceneID="SVF-ow-GWz">
@@ -57,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="mDg-Dy-OKG" detailTextLabel="rGV-wR-f9A" style="IBUITableViewCellStyleValue1" id="a3S-cU-P7h">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" textLabel="mDg-Dy-OKG" detailTextLabel="rGV-wR-f9A" style="IBUITableViewCellStyleValue1" id="a3S-cU-P7h">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a3S-cU-P7h" id="2tR-Hb-YnK">
@@ -91,9 +92,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="DYb-0o-t9G">
+                        <barButtonItem key="leftBarButtonItem" title="Randomize" id="72a-uC-fdT">
+                            <connections>
+                                <action selector="randomize:" destination="sxJ-CH-QFQ" id="yxc-6Y-nhK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AZk-S4-6Lb">
                             <connections>
-                                <segue destination="bCM-jX-1xd" kind="presentation" identifier="editUser" id="qf3-Z8-j95"/>
+                                <segue destination="bCM-jX-1xd" kind="show" identifier="toCreateUser" id="blq-q1-uhd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

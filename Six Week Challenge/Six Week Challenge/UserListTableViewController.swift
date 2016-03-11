@@ -13,7 +13,20 @@ class UserListTableViewController: UITableViewController {
         return UserController.sharedUserController.users.count
     }
     
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath)
+        let user = UserController.sharedUserController.users[indexPath.row]
+        cell.textLabel?.text = user.userName
+        if let team = user.team {
+            cell.detailTextLabel?.text = "Team: \(team)"
+        } else {
+            cell.detailTextLabel?.text = "Unassigned"
+        }
+        return cell
+    }
+    
+    
+    @IBAction func randomize(sender: UIBarButtonItem) {
+        
+    }
 }

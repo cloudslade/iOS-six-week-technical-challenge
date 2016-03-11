@@ -10,7 +10,18 @@ import Foundation
 
 class UserController {
     static let sharedUserController = UserController()
-    var users: [User] = []
+    var users: [User] = [
+        User(userName: "John"),
+        User(userName: "yola"),
+        User(userName: "JohnnyBoy"),
+        User(userName: "Mohanna"),
+        User(userName: "Bradley Slade"),
+        User(userName: "Carolyn Slade"),
+        User(userName: "Dylan Slade"),
+        User(userName: "Tiana Slade"),
+        User(userName: "Ella Slade"),
+        User(userName: "Derek Slade")
+    ]
     
     func createUser(userName: String) {
         let user = User(userName: userName)
