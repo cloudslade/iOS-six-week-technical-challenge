@@ -8,7 +8,8 @@
 
 import UIKit
 
-// If you have time, which you will, after you implement persistence than make the tableview divide users into sectiosn based on their team number. The titles of the sections should be the team numbers
+// If you have time, after you implement persistence make the tableview divide users into sectiosn based on their team number. The titles of the sections should be the team numbers
+// After you get that done implement the assign partner function.
 
 class UserListTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {

@@ -19,7 +19,6 @@ class UserDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(sender: UIBarButtonItem) {
-        // Here is where we need to somehow identify the user that is in question, take the text form the userNameTextField and update that text with it. We could perhaps d othe heavvy lifting in our updateUser Function
         if let newUserName = userNameTextField.text {
             UserController.sharedUserController.updateUser(newUserName, user: user!)
         }
@@ -39,8 +38,8 @@ class UserDetailViewController: UIViewController {
             } else {
                 teamNameLabel.text = "Unassigned"
             }
-            if let partner = user.partner {
-                partnerUserNameLabel.text = partner.userName
+            if let partnerUserName = user.partnerUserName {
+                partnerUserNameLabel.text = partnerUserName
             } else {
                 partnerUserNameLabel.text = "No partner"
             }

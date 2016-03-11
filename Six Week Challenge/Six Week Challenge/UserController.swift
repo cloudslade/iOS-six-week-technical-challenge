@@ -8,7 +8,10 @@
 
 import Foundation
 
+// Persistent almost working, Need to resolve a bug and persistence should work.
+
 class UserController {
+    private let usersKey = "users"
     static let sharedUserController = UserController()
     var users: [User] = [
         User(userName: "John"),
@@ -20,14 +23,22 @@ class UserController {
         User(userName: "Dylan Slade"),
         User(userName: "Tiana Slade"),
         User(userName: "Ella Slade"),
-        User(userName: "Derek Slade")
+        User(userName: "Derek Slade"),
+        User(userName: "Yolanda"),
+        User(userName: "YoyoMa")
     ]
+    
+    init() {
+//        self.users = []
+//        self.loadFromPersistentStorage()
+    }
     
     // We will need to modify all of our crud functions once we implement persistent storage.
     
     func createUser(userName: String) {
         let user = User(userName: userName)
         UserController.sharedUserController.users.append(user)
+        self.saveToPersistentStorage()
     }
     
     func deleteUser(user: User) {
@@ -36,6 +47,7 @@ class UserController {
                 UserController.sharedUserController.users.removeAtIndex(index)
             }
         }
+        self.saveToPersistentStorage()
     }
     
     func updateUser(userName: String, user: User) {
@@ -44,6 +56,7 @@ class UserController {
                 element.userName = userName
             }
         }
+        self.saveToPersistentStorage()
     }
     
     func assignTeams(users: [User]) {
@@ -56,6 +69,27 @@ class UserController {
                 user.team = teamCounter
             }
         }
+        self.saveToPersistentStorage()
+    }
+    
+    // to be called after assignTeams
+    func assignPartners() {
+//        for (index, user) in UserController.sharedUserController.users.enumerate() {
+//        }
+    }
+    
+    // MARK: - Persistence
+    
+    func loadFromPersistentStorage() {
+        let userDictionariesFromDefaults = NSUserDefaults.standardUserDefaults().objectForKey(usersKey) as? [Dictionary<String, AnyObject>]
+        if let userDictionaries = userDictionariesFromDefaults {
+            self.users = userDictionaries.map({User(dictionary: $0)!})
+        }
+    }
+    
+    func saveToPersistentStorage() {
+        let userDictionaries = self.users.map({$0.dictionaryCopy()})
+        NSUserDefaults.standardUserDefaults().setObject(userDictionaries, forKey: usersKey)
     }
     
 }
